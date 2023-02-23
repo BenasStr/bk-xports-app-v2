@@ -20,7 +20,13 @@
     <fragment
         android:id="@+id/navigation_progress"
         android:name="com.example.bk_xsports_app_v2.ui.progress.ProgressFragment"
-        android:label="fragment_progress"
+        android:label="@string/progress"
         tools:layout="@layout/fragment_progress" />
+
+    <fragment
+        android:id="@+id/navigation_explore"
+        android:name="com.example.bk_xsports_app_v2.ui.explore.ExploreFragment"
+        android:label="@string/explore"
+        tools:layout="@layout/fragment_explore" />
 
 </navigation>

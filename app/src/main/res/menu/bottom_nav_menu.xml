@@ -16,4 +16,9 @@
         android:icon="@drawable/ic_baseline_bar_chart_24"
         android:title="@string/progress" />
 
+    <item
+        android:id="@+id/navigation_explore"
+        android:icon="@drawable/ic_baseline_add_box_24"
+        android:title="@string/explore" />
+
 </menu>
