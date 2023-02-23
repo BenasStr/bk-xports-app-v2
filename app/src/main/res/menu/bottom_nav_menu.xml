@@ -12,17 +12,7 @@
         android:title="@string/training" />
 
     <item
-        android:id="@+id/navigation_home"
-        android:icon="@drawable/ic_baseline_web_stories_24"
-        android:title="@string/my_list" />
-
-    <item
-        android:id="@+id/navigation_dashboard"
-        android:icon="@drawable/ic_baseline_skateboarding_24"
-        android:title="@string/training" />
-
-    <item
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/navigation_progress"
         android:icon="@drawable/ic_baseline_bar_chart_24"
         android:title="@string/progress" />
 
