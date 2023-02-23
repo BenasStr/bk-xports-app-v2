@@ -6,4 +6,6 @@
     <string name="my_list">My List</string>
     <string name="training">Training</string>
     <string name="progress">Progress</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
