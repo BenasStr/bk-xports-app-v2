@@ -7,6 +7,11 @@
         android:title="@string/my_list"/>
 
     <item
+        android:id="@+id/navigation_training"
+        android:icon="@drawable/ic_baseline_skateboarding_24"
+        android:title="@string/training" />
+
+    <item
         android:id="@+id/navigation_home"
         android:icon="@drawable/ic_baseline_web_stories_24"
         android:title="@string/my_list" />
