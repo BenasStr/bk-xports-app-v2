@@ -1,20 +1,25 @@
 package com.example.bk_xsports_app_v2
 
+import android.content.Context
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
+import androidx.navigation.navArgs
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.bk_xsports_app_v2.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    private val args: MainActivityArgs by navArgs()
 
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        loadToken(args.token)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -35,5 +40,12 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+    }
+
+    private fun loadToken(token: String) {
+        val sharedPreference = getSharedPreferences("token", Context.MODE_PRIVATE)
+        val editor = sharedPreference?.edit()
+        editor?.putString("token", token)
+        editor?.apply()
     }
 }
