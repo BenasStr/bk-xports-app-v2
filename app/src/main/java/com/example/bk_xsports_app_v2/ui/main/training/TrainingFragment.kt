@@ -1,4 +1,4 @@
-package com.example.bk_xsports_app_v2.ui.progress
+package com.example.bk_xsports_app_v2.ui.main.training
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,11 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.bk_xsports_app_v2.R
-import com.example.bk_xsports_app_v2.databinding.FragmentProgressBinding
+import com.example.bk_xsports_app_v2.databinding.FragmentTrainingBinding
 
-class ProgressFragment : Fragment() {
+class TrainingFragment : Fragment() {
 
-    private var _binding: FragmentProgressBinding? = null
+    private var _binding: FragmentTrainingBinding? = null
 
     private val binding get() = _binding!!
 
@@ -18,7 +18,7 @@ class ProgressFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentProgressBinding.inflate(inflater, container, false)
+        _binding = FragmentTrainingBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -26,5 +26,4 @@ class ProgressFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
 }

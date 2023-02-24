@@ -1,4 +1,4 @@
-package com.example.bk_xsports_app_v2.ui.home
+package com.example.bk_xsports_app_v2.ui.examples.home
 
 import android.os.Bundle
 import android.view.LayoutInflater

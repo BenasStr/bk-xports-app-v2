@@ -7,30 +7,30 @@
 
     <fragment
         android:id="@+id/navigation_my_list"
-        android:name="com.example.bk_xsports_app_v2.ui.myList.MyListFragment"
+        android:name="com.example.bk_xsports_app_v2.ui.main.myList.MyListFragment"
         android:label="@string/my_list"
         tools:layout="@layout/fragment_my_list" />
 
     <fragment
         android:id="@+id/navigation_training"
-        android:name="com.example.bk_xsports_app_v2.ui.training.TrainingFragment"
+        android:name="com.example.bk_xsports_app_v2.ui.main.training.TrainingFragment"
         android:label="@string/training"
         tools:layout="@layout/fragment_training" />
 
     <fragment
         android:id="@+id/navigation_progress"
-        android:name="com.example.bk_xsports_app_v2.ui.progress.ProgressFragment"
+        android:name="com.example.bk_xsports_app_v2.ui.main.progress.ProgressFragment"
         android:label="@string/progress"
         tools:layout="@layout/fragment_progress" />
 
     <fragment
         android:id="@+id/navigation_explore"
-        android:name="com.example.bk_xsports_app_v2.ui.explore.ExploreFragment"
+        android:name="com.example.bk_xsports_app_v2.ui.main.explore.ExploreFragment"
         android:label="@string/explore"
         tools:layout="@layout/fragment_explore" />
     <fragment
         android:id="@+id/navigation_account"
-        android:name="com.example.bk_xsports_app_v2.ui.account.AccountFragment"
+        android:name="com.example.bk_xsports_app_v2.ui.main.account.AccountFragment"
         android:label="@string/account"
         tools:layout="@layout/fragment_account" />
 
