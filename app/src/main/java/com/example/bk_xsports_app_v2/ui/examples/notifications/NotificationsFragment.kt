@@ -1,4 +1,4 @@
-package com.example.bk_xsports_app_v2.ui.notifications
+package com.example.bk_xsports_app_v2.ui.examples.notifications
 
 import android.os.Bundle
 import android.view.LayoutInflater

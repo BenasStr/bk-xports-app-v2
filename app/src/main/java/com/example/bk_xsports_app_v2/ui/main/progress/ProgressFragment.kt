@@ -1,4 +1,4 @@
-package com.example.bk_xsports_app_v2.ui.myList
+package com.example.bk_xsports_app_v2.ui.main.progress
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,23 +6,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.bk_xsports_app_v2.R
-import com.example.bk_xsports_app_v2.databinding.FragmentMyListBinding
+import com.example.bk_xsports_app_v2.databinding.FragmentProgressBinding
 
-class MyListFragment : Fragment() {
+class ProgressFragment : Fragment() {
 
-    private var _binding: FragmentMyListBinding? =null
+    private var _binding: FragmentProgressBinding? = null
 
     private val binding get() = _binding!!
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentMyListBinding.inflate(inflater, container, false)
+        _binding = FragmentProgressBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -30,4 +26,5 @@ class MyListFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
 }

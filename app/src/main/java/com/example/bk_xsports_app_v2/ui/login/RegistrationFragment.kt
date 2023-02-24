@@ -1,4 +1,4 @@
-package com.example.bk_xsports_app_v2.ui.account
+package com.example.bk_xsports_app_v2.ui.login
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,17 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.bk_xsports_app_v2.R
 
-class AccountFragment : Fragment() {
+class RegistrationFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_account, container, false)
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
+        return inflater.inflate(R.layout.fragment_registration, container, false)
     }
 }

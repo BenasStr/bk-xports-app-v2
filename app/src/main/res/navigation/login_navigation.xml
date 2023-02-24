@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login_navigation"
+    app:startDestination="@id/loginMainFragment">
+
+    <fragment
+        android:id="@+id/loginMainFragment"
+        android:name="com.example.bk_xsports_app_v2.ui.login.LoginMainFragment"
+        android:label="fragment_login_main"
+        tools:layout="@layout/fragment_login_main" >
+        <action
+            android:id="@+id/action_loginMainFragment_to_loginMediatorFragment"
+            app:destination="@id/loginMediatorFragment" />
+        <action
+            android:id="@+id/action_loginMainFragment_to_mainActivity"
+            app:destination="@id/mainActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginMediatorFragment"
+        android:name="com.example.bk_xsports_app_v2.ui.login.LoginMediatorFragment"
+        android:label="fragment_login_mediator"
+        tools:layout="@layout/fragment_login_mediator" >
+        <action
+            android:id="@+id/action_loginMediatorFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_loginMediatorFragment_to_registrationFragment"
+            app:destination="@id/registrationFragment" />
+    </fragment>
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.example.bk_xsports_app_v2.MainActivity"
+        android:label="MainActivity" >
+        <argument
+            android:name="token"
+            app:argType="string" />
+    </activity>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.bk_xsports_app_v2.ui.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_mainActivity"
+            app:destination="@id/mainActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/registrationFragment"
+        android:name="com.example.bk_xsports_app_v2.ui.login.RegistrationFragment"
+        android:label="fragment_registration"
+        tools:layout="@layout/fragment_registration" >
+        <action
+            android:id="@+id/action_registrationFragment_to_mainActivity"
+            app:destination="@id/mainActivity" />
+    </fragment>
+</navigation>

@@ -1,16 +1,15 @@
-package com.example.bk_xsports_app_v2.ui.training
+package com.example.bk_xsports_app_v2.ui.main.account
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.bk_xsports_app_v2.R
-import com.example.bk_xsports_app_v2.databinding.FragmentTrainingBinding
+import com.example.bk_xsports_app_v2.databinding.FragmentAccountBinding
 
-class TrainingFragment : Fragment() {
+class AccountFragment : Fragment() {
 
-    private var _binding: FragmentTrainingBinding? = null
+    private var _binding: FragmentAccountBinding? =null
 
     private val binding get() = _binding!!
 
@@ -18,7 +17,7 @@ class TrainingFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentTrainingBinding.inflate(inflater, container, false)
+        _binding = FragmentAccountBinding.inflate(inflater, container, false)
         return binding.root
     }
 
