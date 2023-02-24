@@ -17,7 +17,6 @@
         <activity
             android:name=".LoginActivity"
             android:exported="true"
-            android:label="@string/title_activity_login"
             android:theme="@style/Theme.Bkxsportsappv2.NoActionBar">
 
             <intent-filter>
@@ -32,8 +31,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="false"
-            android:label="@string/app_name">
+            android:exported="false">
 
             <meta-data
                 android:name="android.app.lib_name"
