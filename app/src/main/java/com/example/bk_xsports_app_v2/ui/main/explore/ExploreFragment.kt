@@ -1,6 +1,5 @@
 package com.example.bk_xsports_app_v2.ui.main.explore
 
-import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,11 +9,11 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.LayoutManager
 import com.example.bk_xsports_app_v2.R
 import com.example.bk_xsports_app_v2.adapters.SportAdapter
 import com.example.bk_xsports_app_v2.databinding.FragmentExploreBinding
 import com.example.bk_xsports_app_v2.model.SportViewModel
+import com.example.bk_xsports_app_v2.model.TokenViewModel
 
 class ExploreFragment : Fragment() {
 
@@ -24,12 +23,14 @@ class ExploreFragment : Fragment() {
 
     private val sportViewModel: SportViewModel by activityViewModels()
 
+    private val tokenViewModel: TokenViewModel by activityViewModels()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentExploreBinding.inflate(inflater, container, false)
-        sportViewModel.getSportData(loadToken())
+        sportViewModel.getSportData(tokenViewModel.token.value.toString())
         return binding.root
     }
 
@@ -47,10 +48,5 @@ class ExploreFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }
-
-    private fun loadToken(): String {
-        val sharedPreference = activity?.getSharedPreferences("token", Context.MODE_PRIVATE)
-        return sharedPreference?.getString("token", null).toString()
     }
 }
