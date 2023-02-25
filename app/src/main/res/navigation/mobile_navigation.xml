@@ -45,6 +45,21 @@
         <argument
             android:name="sportId"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_categoryFragment_to_trickFragment"
+            app:destination="@id/trickFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/trickFragment"
+        android:name="com.example.bk_xsports_app_v2.ui.main.trick.TrickFragment"
+        android:label="fragment_trick"
+        tools:layout="@layout/fragment_trick" >
+        <argument
+            android:name="categoryId"
+            app:argType="integer" />
+        <argument
+            android:name="sportId"
+            app:argType="integer" />
     </fragment>
 
 </navigation>

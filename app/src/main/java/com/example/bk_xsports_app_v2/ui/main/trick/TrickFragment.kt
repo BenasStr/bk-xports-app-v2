@@ -1,4 +1,4 @@
-package com.example.bk_xsports_app_v2.ui.main.category
+package com.example.bk_xsports_app_v2.ui.main.trick
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,37 +7,36 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bk_xsports_app_v2.R
-import com.example.bk_xsports_app_v2.adapters.CategoryAdapter
-import com.example.bk_xsports_app_v2.model.CategoryViewModel
+import com.example.bk_xsports_app_v2.adapters.TrickAdapter
 import com.example.bk_xsports_app_v2.model.TokenViewModel
+import com.example.bk_xsports_app_v2.model.TrickViewModel
 
-class CategoryFragment : Fragment() {
+class TrickFragment : Fragment() {
 
-    private val args: CategoryFragmentArgs by navArgs()
-    private val categoryViewModel: CategoryViewModel by viewModels()
+    private val args: TrickFragmentArgs by navArgs()
+    private val trickViewModel: TrickViewModel by viewModels()
     private val tokenViewModel: TokenViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        categoryViewModel.getCategoryData(tokenViewModel.token.value.toString(), args.sportId)
-        return inflater.inflate(R.layout.fragment_category, container, false)
+        trickViewModel.getTricksData(tokenViewModel.token.value.toString(), args.sportId, args.categoryId)
+        return inflater.inflate(R.layout.fragment_trick, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val recyclerView = view.findViewById<RecyclerView>(R.id.category_recycler_view)
+        val recyclerView = view.findViewById<RecyclerView>(R.id.trick_recycler_view)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        categoryViewModel.category.observe(viewLifecycleOwner) {
-            data -> recyclerView.adapter = CategoryAdapter(findNavController(), data)
+        trickViewModel.trick.observe(viewLifecycleOwner) {
+            data -> recyclerView.adapter = TrickAdapter(data)
         }
     }
 }
