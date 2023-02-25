@@ -47,6 +47,11 @@ interface ApiService {
         @Path("sportId") sportId: Int,
         @Path("categoryId") categoryId: Int
     ) : TrickData
+
+    @GET("sports/my_list")
+    suspend fun getMyListTricks(
+        @Header("Authorization") authorization: String
+    ) : SportData
 }
 
 object Api {
