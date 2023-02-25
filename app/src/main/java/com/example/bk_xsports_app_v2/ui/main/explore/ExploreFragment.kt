@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -21,7 +22,7 @@ class ExploreFragment : Fragment() {
 
     private val binding get() = _binding!!
 
-    private val sportViewModel: SportViewModel by activityViewModels()
+    private val sportViewModel: SportViewModel by viewModels()
 
     private val tokenViewModel: TokenViewModel by activityViewModels()
 
