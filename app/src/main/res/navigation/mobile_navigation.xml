@@ -11,8 +11,8 @@
         android:label="@string/my_list"
         tools:layout="@layout/fragment_my_list" >
         <action
-            android:id="@+id/action_navigation_my_list_to_categoryFragment"
-            app:destination="@id/categoryFragment" />
+            android:id="@+id/action_navigation_my_list_to_myListCategoryFragment"
+            app:destination="@id/myListCategoryFragment" />
     </fragment>
 
     <fragment
@@ -61,6 +61,15 @@
         <argument
             android:name="categoryId"
             app:argType="integer" />
+        <argument
+            android:name="sportId"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/myListCategoryFragment"
+        android:name="com.example.bk_xsports_app_v2.ui.main.myList.MyListCategoryFragment"
+        android:label="fragment_my_list_category"
+        tools:layout="@layout/fragment_my_list_category" >
         <argument
             android:name="sportId"
             app:argType="integer" />

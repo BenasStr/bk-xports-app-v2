@@ -34,7 +34,7 @@ class MyListSportAdapter(private val navController: NavController, private val s
         init {
             itemView.setOnClickListener {
                 val sport = sportData.data[adapterPosition]
-                val action = MyListFragmentDirections.actionNavigationMyListToCategoryFragment(sport.id)
+                val action = MyListFragmentDirections.actionNavigationMyListToMyListCategoryFragment(sport.id)
                 navController.navigate(action)
             }
         }
