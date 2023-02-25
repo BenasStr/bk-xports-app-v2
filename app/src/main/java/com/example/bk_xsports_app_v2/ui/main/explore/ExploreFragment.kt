@@ -23,7 +23,6 @@ class ExploreFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val sportViewModel: SportViewModel by viewModels()
-
     private val tokenViewModel: TokenViewModel by activityViewModels()
 
     override fun onCreateView(

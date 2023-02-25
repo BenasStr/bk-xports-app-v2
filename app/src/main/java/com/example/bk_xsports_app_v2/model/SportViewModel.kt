@@ -26,4 +26,16 @@ class SportViewModel: ViewModel() {
             }
         }
     }
+
+    fun getMyListSportData(token: String) {
+        viewModelScope.launch {
+            try {
+                _sport.value = Api.retrofitService.getMyListTricks(token)
+                _status.value = true
+            } catch (e: Exception) {
+                println(e)
+                _status.value = false
+            }
+        }
+    }
 }

@@ -9,7 +9,11 @@
         android:id="@+id/navigation_my_list"
         android:name="com.example.bk_xsports_app_v2.ui.main.myList.MyListFragment"
         android:label="@string/my_list"
-        tools:layout="@layout/fragment_my_list" />
+        tools:layout="@layout/fragment_my_list" >
+        <action
+            android:id="@+id/action_navigation_my_list_to_categoryFragment"
+            app:destination="@id/categoryFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_training"

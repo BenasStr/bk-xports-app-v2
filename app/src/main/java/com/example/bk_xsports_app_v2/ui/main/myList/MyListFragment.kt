@@ -5,14 +5,26 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.bk_xsports_app_v2.R
+import com.example.bk_xsports_app_v2.adapters.MyListSportAdapter
+import com.example.bk_xsports_app_v2.adapters.SportAdapter
 import com.example.bk_xsports_app_v2.databinding.FragmentMyListBinding
+import com.example.bk_xsports_app_v2.model.SportViewModel
+import com.example.bk_xsports_app_v2.model.TokenViewModel
 
 class MyListFragment : Fragment() {
 
     private var _binding: FragmentMyListBinding? =null
 
     private val binding get() = _binding!!
+
+    private val sportViewModel: SportViewModel by viewModels()
+    private val tokenViewModel: TokenViewModel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,7 +35,19 @@ class MyListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentMyListBinding.inflate(inflater, container, false)
+        sportViewModel.getMyListSportData(tokenViewModel.token.value.toString())
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val recyclerView = view.findViewById<RecyclerView>(R.id.my_list_recycler_view)
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
+        sportViewModel.sport.observe(viewLifecycleOwner) {
+            data -> recyclerView.adapter = MyListSportAdapter(findNavController(), data)
+        }
     }
 
     override fun onDestroyView() {
