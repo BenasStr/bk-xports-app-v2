@@ -27,11 +27,24 @@
         android:id="@+id/navigation_explore"
         android:name="com.example.bk_xsports_app_v2.ui.main.explore.ExploreFragment"
         android:label="@string/explore"
-        tools:layout="@layout/fragment_explore" />
+        tools:layout="@layout/fragment_explore" >
+        <action
+            android:id="@+id/action_navigation_explore_to_categoryFragment"
+            app:destination="@id/categoryFragment" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_account"
         android:name="com.example.bk_xsports_app_v2.ui.main.account.AccountFragment"
         android:label="@string/account"
         tools:layout="@layout/fragment_account" />
+    <fragment
+        android:id="@+id/categoryFragment"
+        android:name="com.example.bk_xsports_app_v2.ui.main.category.CategoryFragment"
+        android:label="fragment_category"
+        tools:layout="@layout/fragment_category" >
+        <argument
+            android:name="sportId"
+            app:argType="integer" />
+    </fragment>
 
 </navigation>
