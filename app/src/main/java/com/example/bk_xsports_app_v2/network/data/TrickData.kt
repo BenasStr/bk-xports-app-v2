@@ -10,5 +10,6 @@ data class TrickData(
 data class Trick(
     val id: Int,
     val name: String,
-    val description: String
+    val description: String,
+    val difficulty: String
 )

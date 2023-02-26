@@ -18,10 +18,9 @@ class TrickAdapter(private val trickData: TrickData):
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val trick = trickData.data[position]
-        println(trick.name)
-        println(trick.description)
         holder.trickName.text = trick.name
         holder.description.text = trick.description
+        holder.difficulty.text = trick.difficulty
     }
 
     override fun getItemCount() = trickData.data.size
@@ -29,6 +28,7 @@ class TrickAdapter(private val trickData: TrickData):
     inner class ItemViewHolder(private val view: View): RecyclerView.ViewHolder(view) {
         val trickName: TextView = view.findViewById(R.id.trick_name)
         val description: TextView = view.findViewById(R.id.short_description)
+        val difficulty: TextView = view.findViewById(R.id.difficulty_text)
     }
 
 }

@@ -13,10 +13,16 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bk_xsports_app_v2.R
 import com.example.bk_xsports_app_v2.adapters.CategoryAdapter
+import com.example.bk_xsports_app_v2.databinding.FragmentCategoryBinding
+import com.example.bk_xsports_app_v2.databinding.FragmentMyListCategoryBinding
 import com.example.bk_xsports_app_v2.model.CategoryViewModel
 import com.example.bk_xsports_app_v2.model.TokenViewModel
 
 class CategoryFragment : Fragment() {
+
+    private var _binding: FragmentCategoryBinding? =null
+
+    private val binding get() = _binding!!
 
     private val args: CategoryFragmentArgs by navArgs()
     private val categoryViewModel: CategoryViewModel by viewModels()
@@ -26,8 +32,9 @@ class CategoryFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        _binding = FragmentCategoryBinding.inflate(inflater, container, false)
         categoryViewModel.getCategoryData(tokenViewModel.token.value.toString(), args.sportId)
-        return inflater.inflate(R.layout.fragment_category, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -39,5 +46,10 @@ class CategoryFragment : Fragment() {
         categoryViewModel.category.observe(viewLifecycleOwner) {
             data -> recyclerView.adapter = CategoryAdapter(findNavController(), data)
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
