@@ -4,11 +4,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.navigation.NavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bk_xsports_app_v2.R
 import com.example.bk_xsports_app_v2.network.data.TrickData
+import com.example.bk_xsports_app_v2.ui.main.myList.MyListCategoryFragmentDirections
+import com.example.bk_xsports_app_v2.ui.main.trick.TrickListFragmentDirections
 
-class TrickAdapter(private val trickData: TrickData):
+class TrickAdapter(private val navController: NavController, private val trickData: TrickData):
     RecyclerView.Adapter<TrickAdapter.ItemViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
@@ -29,6 +32,14 @@ class TrickAdapter(private val trickData: TrickData):
         val trickName: TextView = view.findViewById(R.id.trick_name)
         val description: TextView = view.findViewById(R.id.short_description)
         val difficulty: TextView = view.findViewById(R.id.difficulty_text)
+
+        init {
+            itemView.setOnClickListener {
+                val trick = trickData.data[adapterPosition]
+                val action = TrickListFragmentDirections.actionTrickFragmentToTrickFragment2(trick.id)
+                navController.navigate(action)
+            }
+        }
     }
 
 }

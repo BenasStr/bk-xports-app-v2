@@ -9,7 +9,7 @@ import androidx.navigation.NavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bk_xsports_app_v2.R
 import com.example.bk_xsports_app_v2.network.data.CategoryData
-import com.example.bk_xsports_app_v2.ui.main.category.CategoryFragmentDirections
+import com.example.bk_xsports_app_v2.ui.main.myList.MyListCategoryFragmentDirections
 
 class MyListCategoryAdapter(private val navController: NavController, private val categoryData: CategoryData):
     RecyclerView.Adapter<MyListCategoryAdapter.ItemViewHolder>() {
@@ -30,12 +30,12 @@ class MyListCategoryAdapter(private val navController: NavController, private va
             val imageView: ImageView = view.findViewById(R.id.item_image)
             val textView: TextView = view.findViewById(R.id.item_text)
 
-//            init {
-//                itemView.setOnClickListener {
-//                    val category = categoryData.data[adapterPosition]
-//                    val action = CategoryFragmentDirections.actionCategoryFragmentToTrickFragment(category.sportId, category.id)
-//                    navController.navigate(action)
-//                }
-//            }
+            init {
+                itemView.setOnClickListener {
+                    val category = categoryData.data[adapterPosition]
+                    val action = MyListCategoryFragmentDirections.actionMyListCategoryFragmentToTrickFragment(category.sportId, category.id)
+                    navController.navigate(action)
+                }
+            }
         }
     }
