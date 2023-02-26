@@ -25,12 +25,12 @@
         app:layout_constraintTop_toBottomOf="@+id/trick_name" />
 
     <TextView
-        android:id="@+id/variants_count"
+        android:id="@+id/difficulty_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:layout_marginTop="12dp"
-        android:text=" variants"
+        android:text="Difficulty"
         app:layout_constraintEnd_toStartOf="@+id/learned_count"
         app:layout_constraintHorizontal_bias="0.014"
         app:layout_constraintStart_toStartOf="parent"
