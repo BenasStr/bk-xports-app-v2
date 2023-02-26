@@ -9,7 +9,6 @@ import androidx.navigation.NavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bk_xsports_app_v2.R
 import com.example.bk_xsports_app_v2.network.data.SportData
-import com.example.bk_xsports_app_v2.ui.main.explore.ExploreFragmentDirections
 
 class SportAdapter(private val navController: NavController, private val sportData: SportData):
     RecyclerView.Adapter<SportAdapter.ItemViewHolder>() {
@@ -30,13 +29,5 @@ class SportAdapter(private val navController: NavController, private val sportDa
     inner class ItemViewHolder(private val view: View): RecyclerView.ViewHolder(view) {
         val imageView: ImageView = view.findViewById(R.id.item_image)
         val textView: TextView = view.findViewById(R.id.item_text)
-
-        init {
-            itemView.setOnClickListener {
-                val sport = sportData.data[adapterPosition]
-                val action = ExploreFragmentDirections.actionNavigationExploreToCategoryFragment(sport.id)
-                navController.navigate(action)
-            }
-        }
     }
 }

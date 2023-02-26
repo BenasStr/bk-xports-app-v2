@@ -26,4 +26,9 @@
     <string name="please_log_in">Please log in</string>
     <string name="password">password</string>
     <string name="repeat_password">repeat password</string>
+    <string name="prerequisites">Prerequisites:</string>
+    <string name="my_progress">My progress:</string>
+    <string name="description">Description:</string>
+    <string name="status">Status</string>
+    <string name="next_trick">next trick</string>
 </resources>
