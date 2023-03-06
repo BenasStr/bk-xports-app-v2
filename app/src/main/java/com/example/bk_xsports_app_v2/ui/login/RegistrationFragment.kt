@@ -28,7 +28,7 @@ class RegistrationFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        register_button.setOnClickListener {
+        register_user_button.setOnClickListener {
             if (!checkEmail(register_email.text.toString())) {
                 register_email.error = "Incorrect email"
             } else if (!checkPasswords(

@@ -46,13 +46,14 @@ class UserViewModel: ViewModel() {
             try {
                 _token.value = "Bearer " + Api.retrofitService.registerUser(
                     RegisterRequest(
+                        username,
                         name,
                         surname,
-                        username,
                         email,
                         password
                     )
                 )
+                _status.value = true
             } catch (e: Exception) {
                 _status.value = false
             }
