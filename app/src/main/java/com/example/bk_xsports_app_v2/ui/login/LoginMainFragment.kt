@@ -28,12 +28,15 @@ class LoginMainFragment : Fragment() {
         val email = sharedPreference?.getString("email", null)
         val password = sharedPreference?.getString("password", null)
 
-        if(email != null && password != null) {
-            loginCall(email, password)
-        } else {
-            val action = LoginMainFragmentDirections.actionLoginMainFragmentToLoginMediatorFragment()
-            findNavController().navigate(action)
-        }
+//        if(email != null && password != null) {
+//            loginCall(email, password)
+//        } else {
+//            val action = LoginMainFragmentDirections.actionLoginMainFragmentToLoginMediatorFragment()
+//            findNavController().navigate(action)
+//        }
+
+        val action = LoginMainFragmentDirections.actionLoginMainFragmentToLoginMediatorFragment()
+        findNavController().navigate(action)
     }
 
     private fun loginCall(email: String, password: String) {
