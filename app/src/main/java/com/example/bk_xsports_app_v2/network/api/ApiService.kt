@@ -2,6 +2,7 @@ package com.example.bk_xsports_app_v2.network.api
 
 import com.example.bk_xsports_app_v2.network.data.*
 import com.example.bk_xsports_app_v2.network.request.LoginRequest
+import com.example.bk_xsports_app_v2.network.request.RegisterRequest
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Retrofit
@@ -28,6 +29,11 @@ interface ApiService {
     @POST("auth/login")
     suspend fun getToken(
         @Body requestBody: LoginRequest
+    ) : TokenData
+
+    @POST("auth/register")
+    suspend fun registerUser(
+        @Body requestBody: RegisterRequest
     ) : TokenData
 
     @GET("sports")

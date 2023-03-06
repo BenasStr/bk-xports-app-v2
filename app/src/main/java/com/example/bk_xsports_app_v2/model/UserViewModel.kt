@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.bk_xsports_app_v2.network.api.Api
 import com.example.bk_xsports_app_v2.network.request.LoginRequest
+import com.example.bk_xsports_app_v2.network.request.RegisterRequest
 import kotlinx.coroutines.launch
 
 class UserViewModel: ViewModel() {
@@ -31,6 +32,27 @@ class UserViewModel: ViewModel() {
                     LoginRequest(email, password)
                 ).data.token
                 _status.value = true
+            } catch (e: Exception) {
+                _status.value = false
+            }
+        }
+    }
+
+    fun register(name: String, surname: String, username: String, email: String, password: String) {
+        _email.value = email
+        _password.value = password
+
+        viewModelScope.launch {
+            try {
+                _token.value = "Bearer " + Api.retrofitService.registerUser(
+                    RegisterRequest(
+                        name,
+                        surname,
+                        username,
+                        email,
+                        password
+                    )
+                )
             } catch (e: Exception) {
                 _status.value = false
             }
