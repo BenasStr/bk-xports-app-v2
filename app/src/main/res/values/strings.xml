@@ -32,4 +32,8 @@
     <string name="status">Status</string>
     <string name="next_trick">next trick</string>
     <string name="sport">Sport</string>
+    <string name="registration">Registration</string>
+    <string name="name">name</string>
+    <string name="surname">surname</string>
+    <string name="username">username</string>
 </resources>
