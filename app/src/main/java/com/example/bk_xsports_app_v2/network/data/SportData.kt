@@ -10,5 +10,5 @@ data class SportData(
 data class Sport(
     val id: Int,
     val name: String,
-    val photo: String
+    val photo: String ?= null
 )

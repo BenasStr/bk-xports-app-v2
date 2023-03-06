@@ -31,4 +31,5 @@
     <string name="description">Description:</string>
     <string name="status">Status</string>
     <string name="next_trick">next trick</string>
+    <string name="sport">Sport</string>
 </resources>

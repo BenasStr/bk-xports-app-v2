@@ -34,6 +34,7 @@ class SportViewModel: ViewModel() {
                 _status.value = true
             } catch (e: Exception) {
                 println(e)
+                println("Status problem")
                 _status.value = false
             }
         }

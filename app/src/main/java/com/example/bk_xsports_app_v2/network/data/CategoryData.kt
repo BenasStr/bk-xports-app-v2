@@ -10,6 +10,6 @@ class CategoryData(
 data class Category(
     val id: Int,
     val name: String,
-    val photo: String,
+    val photo: String ?= null,
     val sportId: Int
 )

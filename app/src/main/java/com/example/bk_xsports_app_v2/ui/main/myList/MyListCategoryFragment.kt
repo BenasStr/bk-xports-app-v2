@@ -43,7 +43,12 @@ class MyListCategoryFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         categoryViewModel.category.observe(viewLifecycleOwner) {
-                data -> recyclerView.adapter = MyListCategoryAdapter(findNavController(), data)
+                data -> recyclerView.adapter = MyListCategoryAdapter(
+                findNavController(),
+                data,
+                tokenViewModel.token.value.toString(),
+                requireContext()
+            )
         }
     }
 

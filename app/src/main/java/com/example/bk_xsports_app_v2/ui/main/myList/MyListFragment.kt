@@ -46,7 +46,12 @@ class MyListFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         sportViewModel.sport.observe(viewLifecycleOwner) {
-            data -> recyclerView.adapter = MyListSportAdapter(findNavController(), data)
+            data -> recyclerView.adapter = MyListSportAdapter(
+                findNavController(),
+                data,
+                tokenViewModel.token.value.toString(),
+                requireContext()
+            )
         }
     }
 
