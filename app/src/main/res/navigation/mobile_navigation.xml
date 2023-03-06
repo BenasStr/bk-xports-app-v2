@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_navigation_my_list_to_myListCategoryFragment"
             app:destination="@id/myListCategoryFragment" />
+        <action
+            android:id="@+id/action_navigation_my_list_to_navigation_explore"
+            app:destination="@id/navigation_explore" />
     </fragment>
 
     <fragment

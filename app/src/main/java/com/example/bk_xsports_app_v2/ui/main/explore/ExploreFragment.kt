@@ -41,7 +41,11 @@ class ExploreFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         sportViewModel.sport.observe(viewLifecycleOwner) {
-            data -> recyclerView.adapter = SportAdapter(findNavController(), data)
+            data -> recyclerView.adapter = SportAdapter(
+                data,
+                tokenViewModel.token.value.toString(),
+                requireContext()
+            )
         }
     }
 

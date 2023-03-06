@@ -17,11 +17,6 @@
         android:title="@string/progress" />
 
     <item
-        android:id="@+id/navigation_explore"
-        android:icon="@drawable/ic_baseline_add_box_24"
-        android:title="@string/explore" />
-
-    <item
         android:id="@+id/navigation_account"
         android:icon="@drawable/ic_baseline_person_24"
         android:title="@string/account" />

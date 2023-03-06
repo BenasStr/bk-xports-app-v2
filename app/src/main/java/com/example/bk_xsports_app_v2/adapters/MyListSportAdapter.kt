@@ -74,7 +74,12 @@ class MyListSportAdapter(private val navController: NavController, private val s
     }
 
     private inner class AddItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
-        // Add any click listeners or other methods here
+        init {
+            itemView.setOnClickListener {
+                val action = MyListFragmentDirections.actionNavigationMyListToNavigationExplore()
+                navController.navigate(action)
+            }
+        }
     }
 
     companion object {

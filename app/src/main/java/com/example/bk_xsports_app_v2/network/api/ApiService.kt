@@ -58,6 +58,18 @@ interface ApiService {
     suspend fun getMyListTricks(
         @Header("Authorization") authorization: String
     ) : SportData
+
+    //TODO update this endpoint
+    @GET("sports")
+    suspend fun getSportsExplore(
+        @Header("Authorization") authorization: String
+    ) : SportData
+
+    @POST("sports/my_list")
+    suspend fun addMyListSport(
+        @Header("Authorization") authorization: String,
+        @Query("sportId") sportId: Int
+    ) : SportData
 }
 
 object Api {
