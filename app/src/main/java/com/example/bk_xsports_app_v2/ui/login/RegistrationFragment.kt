@@ -10,7 +10,6 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.bk_xsports_app_v2.R
 import com.example.bk_xsports_app_v2.model.UserViewModel
-import kotlinx.android.synthetic.main.fragment_login_mediator.*
 import kotlinx.android.synthetic.main.fragment_registration.*
 
 class RegistrationFragment : Fragment() {

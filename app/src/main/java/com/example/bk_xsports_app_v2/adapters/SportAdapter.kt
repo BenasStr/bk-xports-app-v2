@@ -36,20 +36,25 @@ class SportAdapter(private val navController: NavController, private val sportDa
         return sportData.data.size.plus(1)
     }
 
+    //done
     override fun getItemViewType(position: Int): Int {
         return if (position == itemCount - 1) VIEW_TYPE_ADD_ITEM else VIEW_TYPE_ITEM
     }
 
+    //done
     inner class ItemViewHolder(private val view: View): RecyclerView.ViewHolder(view) {
         val imageView: ImageView = view.findViewById(R.id.item_image)
         val textView: TextView = view.findViewById(R.id.item_text)
     }
 
+
+    //done
     private inner class AddItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         // Add any click listeners or other methods here
     }
 
+    //done
     companion object {
         private const val VIEW_TYPE_ITEM = 0
         private const val VIEW_TYPE_ADD_ITEM = 1
