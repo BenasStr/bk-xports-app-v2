@@ -15,10 +15,10 @@ class SportViewModel: ViewModel() {
     private val _status = MutableLiveData<Boolean>()
     val status: LiveData<Boolean> = _status
 
-    fun getSportData(token: String) {
+    fun getExploreData(token: String) {
         viewModelScope.launch {
             try {
-                _sport.value = Api.retrofitService.getSports(token)
+                _sport.value = Api.retrofitService.getSportsExplore(token)
                 _status.value = true
             } catch (e: Exception) {
                 println(e)

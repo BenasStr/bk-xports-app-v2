@@ -30,7 +30,7 @@ class ExploreFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentExploreBinding.inflate(inflater, container, false)
-        sportViewModel.getSportData(tokenViewModel.token.value.toString())
+        sportViewModel.getExploreData(tokenViewModel.token.value.toString())
         return binding.root
     }
 
@@ -41,8 +41,8 @@ class ExploreFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         sportViewModel.sport.observe(viewLifecycleOwner) {
-            data -> recyclerView.adapter = SportAdapter(
-                data,
+            sport -> recyclerView.adapter = SportAdapter(
+                sport.data,
                 tokenViewModel.token.value.toString(),
                 requireContext()
             )

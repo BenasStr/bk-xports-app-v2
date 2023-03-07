@@ -36,11 +36,6 @@ interface ApiService {
         @Body requestBody: RegisterRequest
     ) : TokenData
 
-    @GET("sports")
-    suspend fun getSports(
-        @Header("Authorization") authorization: String
-    ) : SportData
-
     @GET("sports/{sportId}/categories")
     suspend fun getCategories(
         @Header("Authorization") authorization: String,
@@ -60,7 +55,7 @@ interface ApiService {
     ) : SportData
 
     //TODO update this endpoint
-    @GET("sports")
+    @GET("sports/my_list/explore")
     suspend fun getSportsExplore(
         @Header("Authorization") authorization: String
     ) : SportData
@@ -69,7 +64,13 @@ interface ApiService {
     suspend fun addMyListSport(
         @Header("Authorization") authorization: String,
         @Query("sportId") sportId: Int
-    ) : SportData
+    )
+
+    @DELETE("sports/my_list")
+    suspend fun deleteMyListSport(
+        @Header("Authorization") authorization: String,
+        @Query("sportId") sportId: Int
+    )
 }
 
 object Api {
