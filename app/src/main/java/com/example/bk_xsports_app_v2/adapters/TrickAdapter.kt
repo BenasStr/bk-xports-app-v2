@@ -4,14 +4,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.navigation.NavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bk_xsports_app_v2.R
+import com.example.bk_xsports_app_v2.network.data.Trick
 import com.example.bk_xsports_app_v2.network.data.TrickData
 import com.example.bk_xsports_app_v2.ui.main.myList.MyListCategoryFragmentDirections
 import com.example.bk_xsports_app_v2.ui.main.trick.TrickListFragmentDirections
+import com.example.bk_xsports_app_v2.util.Status
 
-class TrickAdapter(private val navController: NavController, private val trickData: TrickData):
+class TrickAdapter(private val navController: NavController, private val trickData: MutableList<Trick>):
     RecyclerView.Adapter<TrickAdapter.ItemViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
@@ -20,13 +23,15 @@ class TrickAdapter(private val navController: NavController, private val trickDa
     }
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-        val trick = trickData.data[position]
+        val trick = trickData[position]
         holder.trickName.text = trick.name
         holder.description.text = trick.description
         holder.difficulty.text = trick.difficulty
+
+        setItemBackgroundColor(trick, holder)
     }
 
-    override fun getItemCount() = trickData.data.size
+    override fun getItemCount() = trickData.size
 
     inner class ItemViewHolder(private val view: View): RecyclerView.ViewHolder(view) {
         val trickName: TextView = view.findViewById(R.id.trick_name)
@@ -35,11 +40,24 @@ class TrickAdapter(private val navController: NavController, private val trickDa
 
         init {
             itemView.setOnClickListener {
-                val trick = trickData.data[adapterPosition]
+                val trick = trickData[adapterPosition]
                 val action = TrickListFragmentDirections.actionTrickFragmentToTrickFragment2(trick.id)
                 navController.navigate(action)
             }
         }
     }
 
+    private fun setItemBackgroundColor(trick: Trick, holder: ItemViewHolder) {
+        when (trick.status) {
+            Status.PLANNING.status -> {
+                holder.itemView.setBackgroundColor(ContextCompat.getColor(holder.itemView.context, R.color.red_200))
+            }
+            Status.STARTED.status -> {
+                holder.itemView.setBackgroundColor(ContextCompat.getColor(holder.itemView.context, R.color.teal_200))
+            }
+            Status.DONE.status -> {
+                holder.itemView.setBackgroundColor(ContextCompat.getColor(holder.itemView.context, R.color.green_700))
+            }
+        }
+    }
 }

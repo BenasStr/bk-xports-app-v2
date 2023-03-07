@@ -15,6 +15,7 @@ import com.example.bk_xsports_app_v2.adapters.SportAdapter
 import com.example.bk_xsports_app_v2.databinding.FragmentExploreBinding
 import com.example.bk_xsports_app_v2.model.SportViewModel
 import com.example.bk_xsports_app_v2.model.TokenViewModel
+import com.example.bk_xsports_app_v2.util.SpacesItemDecoration
 
 class ExploreFragment : Fragment() {
 
@@ -39,6 +40,7 @@ class ExploreFragment : Fragment() {
 
         val recyclerView = view.findViewById<RecyclerView>(R.id.explore_recycler_view)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        recyclerView.addItemDecoration(SpacesItemDecoration(8))
 
         sportViewModel.sport.observe(viewLifecycleOwner) {
             sport -> recyclerView.adapter = SportAdapter(

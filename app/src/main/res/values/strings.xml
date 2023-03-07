@@ -37,4 +37,8 @@
     <string name="surname">surname</string>
     <string name="username">username</string>
     <string name="popup_text">Popup text</string>
+    <string name="change_login_credentials">Change login credentials</string>
+    <string name="change_user_info">Change user info</string>
+    <string name="logout">Logout</string>
+    <string name="user_name_and_surname">User name and surname</string>
 </resources>

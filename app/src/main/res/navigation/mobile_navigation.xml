@@ -39,7 +39,17 @@
         android:id="@+id/navigation_account"
         android:name="com.example.bk_xsports_app_v2.ui.main.account.AccountFragment"
         android:label="@string/account"
-        tools:layout="@layout/fragment_account" />
+        tools:layout="@layout/fragment_account" >
+        <action
+            android:id="@+id/action_navigation_account_to_changeAccountInfoFragment"
+            app:destination="@id/changeAccountInfoFragment" />
+        <action
+            android:id="@+id/action_navigation_account_to_changeCredentialsFragment"
+            app:destination="@id/changeCredentialsFragment" />
+        <action
+            android:id="@+id/action_navigation_account_to_loginActivity"
+            app:destination="@id/loginActivity" />
+    </fragment>
     <fragment
         android:id="@+id/trickFragment"
         android:name="com.example.bk_xsports_app_v2.ui.main.trick.TrickListFragment"
@@ -76,5 +86,20 @@
             android:name="trickId"
             app:argType="integer" />
     </fragment>
+    <fragment
+        android:id="@+id/changeAccountInfoFragment"
+        android:name="com.example.bk_xsports_app_v2.ui.main.account.ChangeAccountInfoFragment"
+        android:label="fragment_change_account_info"
+        tools:layout="@layout/fragment_change_account_info" />
+    <fragment
+        android:id="@+id/changeCredentialsFragment"
+        android:name="com.example.bk_xsports_app_v2.ui.main.account.ChangeCredentialsFragment"
+        android:label="fragment_change_credentials"
+        tools:layout="@layout/fragment_change_credentials" />
+    <activity
+        android:id="@+id/loginActivity"
+        android:name="com.example.bk_xsports_app_v2.LoginActivity"
+        android:label="activity_login"
+        tools:layout="@layout/activity_login" />
 
 </navigation>

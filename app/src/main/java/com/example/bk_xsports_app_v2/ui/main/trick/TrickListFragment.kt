@@ -15,6 +15,7 @@ import com.example.bk_xsports_app_v2.R
 import com.example.bk_xsports_app_v2.adapters.TrickAdapter
 import com.example.bk_xsports_app_v2.model.TokenViewModel
 import com.example.bk_xsports_app_v2.model.TrickViewModel
+import com.example.bk_xsports_app_v2.util.SpacesItemDecoration
 
 class TrickListFragment : Fragment() {
 
@@ -35,9 +36,10 @@ class TrickListFragment : Fragment() {
 
         val recyclerView = view.findViewById<RecyclerView>(R.id.trick_recycler_view)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        recyclerView.addItemDecoration(SpacesItemDecoration(8))
 
         trickViewModel.trick.observe(viewLifecycleOwner) {
-            data -> recyclerView.adapter = TrickAdapter(findNavController(), data)
+            trick -> recyclerView.adapter = TrickAdapter(findNavController(), trick.data)
         }
     }
 }

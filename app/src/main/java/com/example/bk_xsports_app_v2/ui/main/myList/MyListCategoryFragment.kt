@@ -16,6 +16,7 @@ import com.example.bk_xsports_app_v2.adapters.MyListCategoryAdapter
 import com.example.bk_xsports_app_v2.databinding.FragmentMyListCategoryBinding
 import com.example.bk_xsports_app_v2.model.CategoryViewModel
 import com.example.bk_xsports_app_v2.model.TokenViewModel
+import com.example.bk_xsports_app_v2.util.SpacesItemDecoration
 
 class MyListCategoryFragment : Fragment() {
 
@@ -41,6 +42,7 @@ class MyListCategoryFragment : Fragment() {
 
         val recyclerView = view.findViewById<RecyclerView>(R.id.my_list_category_recycler_view)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        recyclerView.addItemDecoration(SpacesItemDecoration(8))
 
         categoryViewModel.category.observe(viewLifecycleOwner) {
                 data -> recyclerView.adapter = MyListCategoryAdapter(

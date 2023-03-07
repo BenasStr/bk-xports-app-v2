@@ -30,6 +30,9 @@ class LoginMainFragment : Fragment() {
 
         if(email != null && password != null) {
             loginCall(email, password)
+        } else {
+            val action = LoginMainFragmentDirections.actionLoginMainFragmentToLoginMediatorFragment()
+            findNavController().navigate(action)
         }
     }
 
