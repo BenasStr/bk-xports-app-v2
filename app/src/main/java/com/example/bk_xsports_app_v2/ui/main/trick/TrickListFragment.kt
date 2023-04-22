@@ -39,7 +39,7 @@ class TrickListFragment : Fragment() {
         recyclerView.addItemDecoration(SpacesItemDecoration(8))
 
         trickViewModel.trick.observe(viewLifecycleOwner) {
-            trick -> recyclerView.adapter = TrickAdapter(findNavController(), trick.data)
+            trick -> recyclerView.adapter = TrickAdapter(findNavController(), trick.data, args.sportId, args.categoryId)
         }
     }
 }

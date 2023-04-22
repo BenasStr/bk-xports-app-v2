@@ -85,6 +85,12 @@
         <argument
             android:name="trickId"
             app:argType="integer" />
+        <argument
+            android:name="sportId"
+            app:argType="integer" />
+        <argument
+            android:name="categoryId"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/changeAccountInfoFragment"

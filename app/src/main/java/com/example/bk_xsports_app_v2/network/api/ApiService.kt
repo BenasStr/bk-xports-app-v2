@@ -10,7 +10,9 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.*
 
 
-private const val BASE_URL = "https://app-benasstr.cloud.okteto.net/api/"
+//private const val BASE_URL = "https://app-benasstr.cloud.okteto.net/api/v1/"
+private const val BASE_URL = "http://192.168.1.219:8080/api/v1/"
+
 
 private val moshi = Moshi.Builder()
     .add(KotlinJsonAdapterFactory())
@@ -42,12 +44,20 @@ interface ApiService {
         @Path("sportId") sportId: Int
     ) : CategoryData
 
-    @GET("sports/{sportId}/categories/{categoryId}/tricks")
+    @GET("sports/{sportId}/categories/{categoryId}/tricks?extended=true")
     suspend fun getTricks(
         @Header("Authorization") authorization: String,
         @Path("sportId") sportId: Int,
         @Path("categoryId") categoryId: Int
     ) : TrickData
+
+    @GET("sports/{sportId}/categories/{categoryId}/tricks/{trickId}")
+    suspend fun getTrick(
+        @Header("Authorization") authorization: String,
+        @Path("sportId") sportId: Int,
+        @Path("categoryId") categoryId: Int,
+        @Path("trickId") trickId: Int
+    ) : TrickMainData
 
     @GET("sports/my_list")
     suspend fun getMyListTricks(

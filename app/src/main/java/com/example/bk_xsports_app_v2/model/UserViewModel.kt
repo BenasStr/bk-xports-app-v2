@@ -28,11 +28,14 @@ class UserViewModel: ViewModel() {
 
         viewModelScope.launch() {
             try {
+                println("AWWW LAWD AHH JEZUS")
                 _token.value = "Bearer " + Api.retrofitService.getToken(
                     LoginRequest(email, password)
                 ).data.token
                 _status.value = true
             } catch (e: Exception) {
+                println("ITS EN ERROR")
+                println(e)
                 _status.value = false
             }
         }

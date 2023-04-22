@@ -41,4 +41,5 @@
     <string name="change_user_info">Change user info</string>
     <string name="logout">Logout</string>
     <string name="user_name_and_surname">User name and surname</string>
+    <string name="category">CATEGORY</string>
 </resources>

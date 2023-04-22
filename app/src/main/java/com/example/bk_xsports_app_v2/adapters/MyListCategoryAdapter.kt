@@ -13,7 +13,6 @@ import coil.load
 import coil.request.CachePolicy
 import com.example.bk_xsports_app_v2.R
 import com.example.bk_xsports_app_v2.network.data.CategoryData
-import com.example.bk_xsports_app_v2.network.data.Token
 import com.example.bk_xsports_app_v2.ui.main.myList.MyListCategoryFragmentDirections
 
 class MyListCategoryAdapter(
@@ -24,7 +23,7 @@ class MyListCategoryAdapter(
     RecyclerView.Adapter<MyListCategoryAdapter.ItemViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
-        val adapterLayout = LayoutInflater.from(parent.context).inflate(R.layout.item_card, parent, false)
+        val adapterLayout = LayoutInflater.from(parent.context).inflate(R.layout.category_item, parent, false)
         return ItemViewHolder(adapterLayout)
     }
 
