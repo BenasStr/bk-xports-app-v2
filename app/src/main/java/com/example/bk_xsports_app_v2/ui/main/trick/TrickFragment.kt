@@ -22,6 +22,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.bk_xsports_app_v2.R
 import com.example.bk_xsports_app_v2.adapters.PrerequisitesAdapter
 import com.example.bk_xsports_app_v2.adapters.TrickAdapter
+import com.example.bk_xsports_app_v2.adapters.TrickVaraintAdapter
 import com.example.bk_xsports_app_v2.model.TokenViewModel
 import com.example.bk_xsports_app_v2.model.TrickMainViewModel
 import com.example.bk_xsports_app_v2.model.TrickViewModel
@@ -61,6 +62,9 @@ class TrickFragment : Fragment() {
         val trickPrerequisitesRecyclerView = view.findViewById<RecyclerView>(R.id.recyclerView_prerequisites)
         trickPrerequisitesRecyclerView.layoutManager = LinearLayoutManager(requireContext())
 
+        val trickVariantsRecyclerView = view.findViewById<RecyclerView>(R.id.variants_recyclerView)
+        trickVariantsRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+
         trickMainViewModel.trick.observe(viewLifecycleOwner) { trick ->
             trickName.text = trick.data.name
             trickDescription.text = trick.data.description
@@ -68,6 +72,10 @@ class TrickFragment : Fragment() {
             playVideo(trick.data.videoUrl, trickVideoView)
             setItemBackgroundColor(trick.data, trickCard)
             trickPrerequisitesRecyclerView.adapter = PrerequisitesAdapter(trick.data.trickParents)
+
+            if (!args.isTrickVariant) {
+                trickVariantsRecyclerView.adapter = TrickVaraintAdapter(findNavController(), trick.data.trickVariants, args.sportId, args.categoryId)
+            }
         }
     }
 

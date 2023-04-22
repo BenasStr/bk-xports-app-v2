@@ -8,25 +8,24 @@ import androidx.core.content.ContextCompat
 import androidx.navigation.NavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bk_xsports_app_v2.R
-import com.example.bk_xsports_app_v2.network.data.TrickExtended
-import com.example.bk_xsports_app_v2.ui.main.trick.TrickListFragmentDirections
+import com.example.bk_xsports_app_v2.network.data.Trick
+import com.example.bk_xsports_app_v2.ui.main.trick.TrickFragmentDirections
 import com.example.bk_xsports_app_v2.util.Status
 import com.google.android.material.card.MaterialCardView
 
-class TrickAdapter(private val navController: NavController, private val trickData: MutableList<TrickExtended>, private val sportId: Int, private val categoryId: Int):
-    RecyclerView.Adapter<TrickAdapter.ItemViewHolder>() {
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
+class TrickVaraintAdapter(private val navController: NavController, private val trickData: List<Trick>, private val sportId: Int, private val categoryId: Int):
+    RecyclerView.Adapter<TrickVaraintAdapter.ItemViewHolder>() {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TrickVaraintAdapter.ItemViewHolder {
         val adapterLayout = LayoutInflater.from(parent.context).inflate(R.layout.trick_card, parent, false)
         return ItemViewHolder(adapterLayout)
     }
 
-    override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: TrickVaraintAdapter.ItemViewHolder, position: Int) {
         val trick = trickData[position]
         holder.trickName.text = trick.name
         holder.description.text = trick.shortDescription
         holder.difficulty.text = trick.difficulty
-        holder.learnedCount.text = getLearnedCount(trick)
+        holder.learnedCount.text = ""
 
         setItemBackgroundColor(trick, holder.cardBackground)
     }
@@ -43,13 +42,13 @@ class TrickAdapter(private val navController: NavController, private val trickDa
         init {
             itemView.setOnClickListener {
                 val trick = trickData[adapterPosition]
-                val action = TrickListFragmentDirections.actionTrickFragmentToTrickFragment2(trick.id, sportId, categoryId, false)
+                val action = TrickFragmentDirections.actionTrickFragment2Self(trick.id, sportId, categoryId, true)
                 navController.navigate(action)
             }
         }
     }
 
-    private fun setItemBackgroundColor(trick: TrickExtended, cardView: MaterialCardView) {
+    private fun setItemBackgroundColor(trick: Trick, cardView: MaterialCardView) {
         when (trick.status) {
             Status.PLANNING.status -> {
                 cardView.setCardBackgroundColor(ContextCompat.getColor(cardView.context, R.color.orange_200))
@@ -61,20 +60,5 @@ class TrickAdapter(private val navController: NavController, private val trickDa
                 cardView.setCardBackgroundColor(ContextCompat.getColor(cardView.context, R.color.green_500))
             }
         }
-    }
-
-    private fun getLearnedCount(trick: TrickExtended): String {
-        val countAll = 1 + trick.trickVariants.size
-
-        var count = trick.trickVariants.stream()
-            .filter {
-                variant -> variant.status == "Done"
-            }.count()
-
-        if (trick.status == "Done") {
-            count += 1
-        }
-
-        return "learned ${count}/${countAll}"
     }
 }

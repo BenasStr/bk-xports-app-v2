@@ -96,6 +96,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="24dp"
                         android:layout_marginTop="16dp"
+                        android:layout_marginBottom="10dp"
                         android:text="@string/next_trick"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -147,6 +148,7 @@
                 android:background="@color/black" />
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/variants_recyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 

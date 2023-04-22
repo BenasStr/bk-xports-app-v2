@@ -91,6 +91,12 @@
         <argument
             android:name="categoryId"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_trickFragment2_self"
+            app:destination="@id/trickFragment2" />
+        <argument
+            android:name="isTrickVariant"
+            app:argType="boolean" />
     </fragment>
     <fragment
         android:id="@+id/changeAccountInfoFragment"
