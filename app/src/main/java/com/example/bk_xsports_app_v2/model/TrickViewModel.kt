@@ -18,9 +18,14 @@ class TrickViewModel: ViewModel() {
     fun getTricksData(token: String, sportId: Int, categoryId: Int) {
         viewModelScope.launch {
             try {
+                println("VYKSTA UGA UGA")
                 _trick.value = Api.retrofitService.getTricks(token, sportId, categoryId)
                 _status.value = true
             } catch (e: Exception) {
+                println("NEBE")
+                println("spor ${sportId}")
+                println("categ ${categoryId}")
+                println(e)
                 _status.value = false
             }
         }

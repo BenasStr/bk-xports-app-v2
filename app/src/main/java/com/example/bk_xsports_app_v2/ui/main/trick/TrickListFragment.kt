@@ -38,8 +38,9 @@ class TrickListFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.addItemDecoration(SpacesItemDecoration(8))
 
-        trickViewModel.trick.observe(viewLifecycleOwner) {
-            trick -> recyclerView.adapter = TrickAdapter(findNavController(), trick.data, args.sportId, args.categoryId)
+        trickViewModel.trick.observe(viewLifecycleOwner) { trick ->
+            println(trick.data.size)
+            recyclerView.adapter = TrickAdapter(findNavController(), trick.data, args.sportId, args.categoryId)
         }
     }
 }

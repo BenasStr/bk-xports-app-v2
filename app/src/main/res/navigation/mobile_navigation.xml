@@ -56,10 +56,10 @@
         android:label="fragment_trick"
         tools:layout="@layout/fragment_trick_list" >
         <argument
-            android:name="categoryId"
+            android:name="sportId"
             app:argType="integer" />
         <argument
-            android:name="sportId"
+            android:name="categoryId"
             app:argType="integer" />
         <action
             android:id="@+id/action_trickFragment_to_trickFragment2"
