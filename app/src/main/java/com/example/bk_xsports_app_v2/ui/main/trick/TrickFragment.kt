@@ -60,8 +60,6 @@ class TrickFragment : Fragment() {
         val trickVariantsRecyclerView = view.findViewById<RecyclerView>(R.id.variants_recyclerView)
         trickVariantsRecyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        playVideo(null, trickVideoView)
-
         trickMainViewModel.trick.observe(viewLifecycleOwner) { trick ->
             trickName.text = trick.data.name
             trickDescription.text = trick.data.description
@@ -86,6 +84,7 @@ class TrickFragment : Fragment() {
                 view.start()
             } catch (e: Exception) {
                 println(e)
+                view.visibility = View.GONE
             }
 
         } else {

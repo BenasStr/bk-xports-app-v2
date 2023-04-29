@@ -3,9 +3,11 @@ package com.example.bk_xsports_app_v2.ui.main.trick
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.SearchEvent
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -41,6 +43,19 @@ class TrickListFragment : Fragment() {
         val recyclerView = view.findViewById<RecyclerView>(R.id.trick_recycler_view)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.addItemDecoration(SpacesItemDecoration(8))
+
+        val searchView = view.findViewById<SearchView>(R.id.search_view)
+
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String): Boolean {
+                trickViewModel.searchTricksData(tokenViewModel.token.value.toString(), args.sportId, args.categoryId, query)
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String): Boolean {
+                return false
+            }
+        })
 
         trickViewModel.trick.observe(viewLifecycleOwner) { trick ->
             recyclerView.adapter = TrickAdapter(findNavController(), trick.data, args.sportId, args.categoryId)

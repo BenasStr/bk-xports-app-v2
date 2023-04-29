@@ -52,12 +52,12 @@ interface ApiService {
         @Path("categoryId") categoryId: Int
     ) : TrickData
 
-    @GET("sports/{sportId}/categories/{categoryId}/tricks?extended=true&search={search}")
+    @GET("sports/{sportId}/categories/{categoryId}/tricks?extended=true")
     suspend fun getTricksWithSearch(
         @Header("Authorization") authorization: String,
         @Path("sportId") sportId: Int,
         @Path("categoryId") categoryId: Int,
-        @Path("search") search: String
+        @Query("search") search: String
     ) : TrickData
 
     @GET("sports/{sportId}/categories/{categoryId}/tricks/{trickId}")
