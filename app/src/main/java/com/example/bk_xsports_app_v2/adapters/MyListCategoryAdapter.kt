@@ -53,7 +53,7 @@ class MyListCategoryAdapter(
         init {
             itemView.setOnClickListener {
                 val category = categoryData.data[adapterPosition]
-                val action = MyListCategoryFragmentDirections.actionMyListCategoryFragmentToTrickFragment(category.sportId, category.id)
+                val action = MyListCategoryFragmentDirections.actionMyListCategoryFragmentToTrickFragment(category.sportId, category.id, category.name)
                 navController.navigate(action)
             }
         }

@@ -64,6 +64,9 @@
         <action
             android:id="@+id/action_trickFragment_to_trickFragment2"
             app:destination="@id/trickFragment2" />
+        <argument
+            android:name="categoryName"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/myListCategoryFragment"
@@ -76,6 +79,9 @@
         <action
             android:id="@+id/action_myListCategoryFragment_to_trickFragment"
             app:destination="@id/trickFragment" />
+        <argument
+            android:name="sportName"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/trickFragment2"

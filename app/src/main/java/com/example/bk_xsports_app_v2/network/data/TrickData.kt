@@ -14,6 +14,7 @@ data class TrickMainData (
 
 data class Trick(
     val id: Int,
+    val trickId: Int,
     val name: String,
     val shortDescription: String,
     val difficulty: String,
@@ -22,6 +23,7 @@ data class Trick(
 
 data class TrickExtended(
     val id: Int,
+    val trickId: Int,
     val name: String,
     val shortDescription: String,
     val description: String,

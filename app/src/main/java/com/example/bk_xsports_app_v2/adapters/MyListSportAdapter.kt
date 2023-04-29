@@ -59,7 +59,7 @@ class MyListSportAdapter(private val navController: NavController, private var s
             holder.gradient.alpha = 1f
 
             holder.itemView.setOnClickListener {
-                val action = MyListFragmentDirections.actionNavigationMyListToMyListCategoryFragment(sport.id)
+                val action = MyListFragmentDirections.actionNavigationMyListToMyListCategoryFragment(sport.id, sport.name)
                 navController.navigate(action)
             }
 

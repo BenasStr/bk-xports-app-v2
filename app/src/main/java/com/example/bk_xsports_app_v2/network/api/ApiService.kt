@@ -12,6 +12,7 @@ import retrofit2.http.*
 
 //private const val BASE_URL = "https://app-benasstr.cloud.okteto.net/api/v1/"
 private const val BASE_URL = "http://192.168.1.219:8080/api/v1/"
+//private const val BASE_URL = "http://192.168.23.195:8080/api/v1/"
 
 
 private val moshi = Moshi.Builder()
@@ -51,6 +52,14 @@ interface ApiService {
         @Path("categoryId") categoryId: Int
     ) : TrickData
 
+    @GET("sports/{sportId}/categories/{categoryId}/tricks?extended=true&search={search}")
+    suspend fun getTricksWithSearch(
+        @Header("Authorization") authorization: String,
+        @Path("sportId") sportId: Int,
+        @Path("categoryId") categoryId: Int,
+        @Path("search") search: String
+    ) : TrickData
+
     @GET("sports/{sportId}/categories/{categoryId}/tricks/{trickId}")
     suspend fun getTrick(
         @Header("Authorization") authorization: String,
@@ -64,7 +73,6 @@ interface ApiService {
         @Header("Authorization") authorization: String
     ) : SportData
 
-    //TODO update this endpoint
     @GET("sports/my_list/explore")
     suspend fun getSportsExplore(
         @Header("Authorization") authorization: String
