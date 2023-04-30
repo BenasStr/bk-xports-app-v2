@@ -95,6 +95,11 @@ interface ApiService {
         @Header("Authorization") authorization: String,
         @Query("sportId") sportId: Int
     )
+
+    @GET("statistics")
+    suspend fun getStatistics(
+        @Header("Authorization") authorization: String
+    ) : StatisticsData
 }
 
 object Api {

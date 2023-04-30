@@ -4,15 +4,86 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.main.progress.ProgressFragment" >
+    tools:context=".ui.main.progress.ProgressFragment">
+
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/learning_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="This is progress fragment"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="36dp"
+        android:text="@string/learning"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/learned_count"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/learned_count_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="@string/count"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/learned_count"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/learned_count"
+        app:layout_constraintTop_toBottomOf="@+id/learned_count" />
+
+    <TextView
+        android:id="@+id/learned_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="@string/learned"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/learning_count"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/learning_count_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="@string/count"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/learning_count"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/learning_count"
+        app:layout_constraintTop_toBottomOf="@+id/learning_count" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="@string/my_sports"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.095"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/learned_count_number" />
+
+    <ScrollView
+        android:id="@+id/sports_progress_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9"
+        app:layout_constraintVertical_bias="0.0">
+
+<!--        <LinearLayout-->
+<!--            android:id="@+id/progress_linear_layout"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="vertical" />-->
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -19,12 +19,6 @@
     </fragment>
 
     <fragment
-        android:id="@+id/navigation_training"
-        android:name="com.example.bk_xsports_app_v2.ui.main.training.TrainingFragment"
-        android:label="@string/training"
-        tools:layout="@layout/fragment_training" />
-
-    <fragment
         android:id="@+id/navigation_progress"
         android:name="com.example.bk_xsports_app_v2.ui.main.progress.ProgressFragment"
         android:label="@string/progress"

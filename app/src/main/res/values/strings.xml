@@ -42,4 +42,10 @@
     <string name="logout">Logout</string>
     <string name="user_name_and_surname">User name and surname</string>
     <string name="category">CATEGORY</string>
+    <string name="count">count</string>
+    <string name="learned">Learned</string>
+    <string name="learning">Learning</string>
+    <string name="my_sports">My Sports</string>
+    <string name="sport_name">Sport Name</string>
+    <string name="_0_0">0/0</string>
 </resources>

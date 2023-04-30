@@ -7,11 +7,6 @@
         android:title="@string/my_list"/>
 
     <item
-        android:id="@+id/navigation_training"
-        android:icon="@drawable/ic_baseline_skateboarding_24"
-        android:title="@string/training" />
-
-    <item
         android:id="@+id/navigation_progress"
         android:icon="@drawable/ic_baseline_bar_chart_24"
         android:title="@string/progress" />
