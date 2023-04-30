@@ -8,6 +8,7 @@ import androidx.core.content.ContextCompat
 import androidx.navigation.NavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bk_xsports_app_v2.R
+import com.example.bk_xsports_app_v2.network.data.Trick
 import com.example.bk_xsports_app_v2.network.data.TrickExtended
 import com.example.bk_xsports_app_v2.ui.main.trick.TrickListFragmentDirections
 import com.example.bk_xsports_app_v2.util.Status
@@ -50,14 +51,28 @@ class TrickAdapter(private val navController: NavController, private val trickDa
     }
 
     private fun setItemBackgroundColor(trick: TrickExtended, cardView: MaterialCardView) {
-        when (trick.status) {
-            Status.PLANNING.status -> {
-                cardView.setCardBackgroundColor(ContextCompat.getColor(cardView.context, R.color.orange_200))
-            }
-            Status.STARTED.status -> {
+        var done = false
+
+        val countAll = 1 + trick.trickVariants.size
+
+        var count = trick.trickVariants.stream()
+            .filter { variant -> variant.status == "Done"
+            }.count()
+            .toInt()
+
+        if (trick.status == "Done") {
+            count += 1
+        }
+
+        if (countAll == count) {
+            done = true
+        }
+
+        when (done) {
+            false -> {
                 cardView.setCardBackgroundColor(ContextCompat.getColor(cardView.context, R.color.yellow_200))
             }
-            Status.DONE.status -> {
+            true -> {
                 cardView.setCardBackgroundColor(ContextCompat.getColor(cardView.context, R.color.green_500))
             }
         }

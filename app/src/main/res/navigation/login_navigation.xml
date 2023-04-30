@@ -16,7 +16,8 @@
         <action
             android:id="@+id/action_loginMainFragment_to_mainActivity"
             app:destination="@id/mainActivity"
-            app:popUpTo="@id/mainActivity"/>
+            app:popUpTo="@id/loginMainFragment"
+            app:popUpToInclusive="true"/>
     </fragment>
     <fragment
         android:id="@+id/loginMediatorFragment"
@@ -46,7 +47,8 @@
         <action
             android:id="@+id/action_loginFragment_to_mainActivity"
             app:destination="@id/mainActivity"
-            app:popUpTo="@id/mainActivity"/>
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true"/>
     </fragment>
     <fragment
         android:id="@+id/registrationFragment"
@@ -56,6 +58,7 @@
         <action
             android:id="@+id/action_registrationFragment_to_mainActivity"
             app:destination="@id/mainActivity"
-            app:popUpTo="@id/mainActivity" />
+            app:popUpTo="@id/registrationFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>

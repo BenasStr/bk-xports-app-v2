@@ -12,8 +12,6 @@ import retrofit2.http.*
 
 //private const val BASE_URL = "https://app-benasstr.cloud.okteto.net/api/v1/"
 private const val BASE_URL = "http://192.168.1.219:8080/api/v1/"
-//private const val BASE_URL = "http://192.168.23.195:8080/api/v1/"
-
 
 private val moshi = Moshi.Builder()
     .add(KotlinJsonAdapterFactory())
@@ -83,6 +81,14 @@ interface ApiService {
         @Header("Authorization") authorization: String,
         @Query("sportId") sportId: Int
     )
+
+    @PUT("sports/{sportId}/categories/{categoryId}/tricks/{trickId}/progress")
+    suspend fun updateProgress(
+        @Header("Authorization") authorization: String,
+        @Path("sportId") sportId: Int,
+        @Path("categoryId") categoryId: Int,
+        @Path("trickId") trickId: Int
+    ) : TrickMainData
 
     @DELETE("sports/my_list")
     suspend fun deleteMyListSport(

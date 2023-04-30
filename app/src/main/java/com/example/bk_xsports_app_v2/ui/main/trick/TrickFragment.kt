@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.MediaController
 import android.widget.TextView
 import android.widget.VideoView
@@ -23,8 +24,10 @@ import com.example.bk_xsports_app_v2.adapters.TrickVaraintAdapter
 import com.example.bk_xsports_app_v2.model.TokenViewModel
 import com.example.bk_xsports_app_v2.model.TrickMainViewModel
 import com.example.bk_xsports_app_v2.network.data.TrickExtended
+import com.example.bk_xsports_app_v2.network.data.TrickMainData
 import com.example.bk_xsports_app_v2.util.Status
 import com.google.android.material.card.MaterialCardView
+import kotlinx.android.synthetic.main.fragment_trick.view.*
 
 class TrickFragment : Fragment() {
 
@@ -60,25 +63,41 @@ class TrickFragment : Fragment() {
         val trickVariantsRecyclerView = view.findViewById<RecyclerView>(R.id.variants_recyclerView)
         trickVariantsRecyclerView.layoutManager = LinearLayoutManager(requireContext())
 
+        val statusButton = view.findViewById<Button>(R.id.progress_status_button)
+
+        statusButton.setOnClickListener {
+            trickMainViewModel.changeTrickStatus(tokenViewModel.token.value.toString(), args.sportId, args.categoryId, args.trickId)
+        }
+
+//        val nextTrickButton = view.findViewById<Button>(R.id.next_trick_button)
+//        var nextTrickId: Int = -1;
+//
+//        nextTrickButton.setOnClickListener {
+//            TrickFragmentDirections.actionTrickFragment2Self(nextTrickId, args.sportId, args.categoryId, false)
+//        }
+
         trickMainViewModel.trick.observe(viewLifecycleOwner) { trick ->
             trickName.text = trick.data.name
             trickDescription.text = trick.data.description
 
-            playVideo(trick.data.videoUrl, trickVideoView)
+            setStatusButtonText(statusButton, trick)
+//            setNextTrickId(trick)
             setItemBackgroundColor(trick.data, trickCard)
+
             trickPrerequisitesRecyclerView.adapter = PrerequisitesAdapter(trick.data.trickParents)
 
             if (!args.isTrickVariant) {
                 trickVariantsRecyclerView.adapter = TrickVaraintAdapter(findNavController(), trick.data.trickVariants, args.sportId, args.categoryId)
             }
+
+            playVideo(trick.data.videoUrl, trickVideoView)
         }
     }
 
     private fun playVideo(url: String?, view: VideoView) {
         if (url != null) {
             try {
-                view.setVideoURI(Uri.parse("http://192.168.23.195:9000/videos/trick-73.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=5BS4GQT5YCD3Y0KUGSD8%2F20230426%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230426T073017Z&X-Amz-Expires=604800&X-Amz-Security-Token=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3NLZXkiOiI1QlM0R1FUNVlDRDNZMEtVR1NEOCIsImV4cCI6MTY4MjUzNjAwOCwicGFyZW50Ijoic29tZUtleSJ9.Ymxlo4dCc9p7GRc50GAosai2JqOwMWvtf5Cf0Y9X9AWBDCsRe4X41NPXlsBGkj1w0cO5B36iH4QiUH8bhGEJmA&X-Amz-SignedHeaders=host&versionId=null&X-Amz-Signature=0587255b17b7e9ca120f109391bceb61f7409e98723a6b19f6ddfe7c33919830"))
-//                view.setVideoPath("android.resource://" + requireContext().packageName + "/" + R.raw.test)
+                view.setVideoPath("android.resource://" + requireContext().packageName + "/" + R.raw.test)
                 view.setMediaController(MediaController(requireContext()))
                 view.requestFocus()
                 view.start()
@@ -103,6 +122,27 @@ class TrickFragment : Fragment() {
             Status.DONE.status -> {
                 cardView.setStrokeColor(ContextCompat.getColor(cardView.context, R.color.green_500))
             }
+            null -> {
+                cardView.setStrokeColor(ContextCompat.getColor(cardView.context, R.color.white))
+            }
         }
     }
+
+    private fun setStatusButtonText(statusButton: Button, trick: TrickMainData) {
+        if (trick.data.status == null) {
+            statusButton.text = "Not Learned"
+        } else if (trick.data.status == "Done") {
+            statusButton.text = "Done"
+        } else if (trick.data.status == "Started") {
+            statusButton.text = "Learning"
+        }
+    }
+
+//    private fun setNextTrickId(trick: TrickMainData): Int {
+//        return trick.data.trickChildren.stream()
+//            .filter{ child ->
+//                child.status != "Done"
+//            }.findFirst()
+//            .get().trickId
+//    }
 }
