@@ -1,8 +1,6 @@
 package com.example.bk_xsports_app_v2.network.data
 
-import com.fasterxml.jackson.annotation.JsonFormat
 import com.squareup.moshi.JsonClass
-import java.util.*
 
 @JsonClass(generateAdapter = true)
 data class StatisticsData (

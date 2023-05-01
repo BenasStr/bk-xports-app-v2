@@ -25,6 +25,7 @@ import com.example.bk_xsports_app_v2.model.TokenViewModel
 import com.example.bk_xsports_app_v2.model.TrickMainViewModel
 import com.example.bk_xsports_app_v2.network.data.TrickExtended
 import com.example.bk_xsports_app_v2.network.data.TrickMainData
+import com.example.bk_xsports_app_v2.util.SpacesItemDecoration
 import com.example.bk_xsports_app_v2.util.Status
 import com.google.android.material.card.MaterialCardView
 import kotlinx.android.synthetic.main.fragment_trick.view.*
@@ -62,6 +63,7 @@ class TrickFragment : Fragment() {
 
         val trickVariantsRecyclerView = view.findViewById<RecyclerView>(R.id.variants_recyclerView)
         trickVariantsRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        trickVariantsRecyclerView.addItemDecoration(SpacesItemDecoration(8))
 
         val statusButton = view.findViewById<Button>(R.id.progress_status_button)
 

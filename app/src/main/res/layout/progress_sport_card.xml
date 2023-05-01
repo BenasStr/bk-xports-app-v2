@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/progress_sport_card"
+    android:layout_marginBottom="8dp"
     app:cardCornerRadius="16dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -30,6 +31,7 @@
             android:layout_width="175dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="76dp"
+            android:progressDrawable="@drawable/progress_drawable"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintLeft_toRightOf="@id/sport_name_text"

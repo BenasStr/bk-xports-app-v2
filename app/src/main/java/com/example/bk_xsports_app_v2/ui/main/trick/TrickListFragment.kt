@@ -53,7 +53,10 @@ class TrickListFragment : Fragment() {
             }
 
             override fun onQueryTextChange(newText: String): Boolean {
-                return false
+                if (newText.isNullOrEmpty()) {
+                    trickViewModel.getTricksData(tokenViewModel.token.value.toString(), args.sportId, args.categoryId)
+                }
+                return true
             }
         })
 
