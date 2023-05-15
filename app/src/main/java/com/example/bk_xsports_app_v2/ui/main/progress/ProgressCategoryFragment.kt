@@ -73,7 +73,6 @@ class ProgressCategoryFragment : Fragment() {
             trickLearningCount.text = stat.get().learningCount.toString()
 
             setUpCategoriesProgressBars(inflater, scrollView, linearLayout, stat.get())
-
             setUpChart(chartView, stat.get().timeStamps)
         }
     }
@@ -84,9 +83,8 @@ class ProgressCategoryFragment : Fragment() {
     }
 
     private fun setUpCategoriesProgressBars(inflater: LayoutInflater, scrollView: ScrollView, linearLayout: LinearLayout, sport: SportStatistics) {
+        linearLayout.removeAllViews()
         for (stat in sport.sportCategories) {
-            linearLayout.removeAllViews()
-
             val itemLayout = inflater.inflate(R.layout.progress_sport_card, scrollView, false)
             val sportName = itemLayout.findViewById<TextView>(R.id.sport_name_text)
             sportName.text = stat.name
@@ -104,31 +102,31 @@ class ProgressCategoryFragment : Fragment() {
     }
 
     private fun setUpChart(chartView: LineChart, timeStamps: List<TimeStamps>) {
-        val dataSet = LineDataSet(convertToEntries(timeStamps), "Progress")
-
-        dataSet.setDrawCircles(false)
-        dataSet.lineWidth = 2f
-        dataSet.mode = LineDataSet.Mode.CUBIC_BEZIER
-        dataSet.fillColor = ContextCompat.getColor(requireContext(), R.color.blue_transparent)
-        dataSet.setDrawFilled(true)
-
-        chartView.description.isEnabled = false
-        chartView.legend.isEnabled = false
-        chartView.data = LineData(dataSet)
-
-        chartView.isDragEnabled = false
-        chartView.setScaleEnabled(false)
-        chartView.setPinchZoom(false)
-        chartView.setTouchEnabled(false)
-
-        chartView.axisLeft.setDrawGridLines(false)
-        chartView.axisRight.setDrawGridLines(false)
-        chartView.xAxis.setDrawGridLines(false)
-
-        setAxis(chartView)
-
-        chartView.isHighlightPerTapEnabled = false
-        chartView.invalidate()
+//        val dataSet = LineDataSet(convertToEntries(timeStamps), "Progress")
+//
+//        dataSet.setDrawCircles(false)
+//        dataSet.lineWidth = 2f
+//        dataSet.mode = LineDataSet.Mode.CUBIC_BEZIER
+//        dataSet.fillColor = ContextCompat.getColor(requireContext(), R.color.blue_transparent)
+//        dataSet.setDrawFilled(true)
+//
+//        chartView.description.isEnabled = false
+//        chartView.legend.isEnabled = false
+//        chartView.data = LineData(dataSet)
+//
+//        chartView.isDragEnabled = false
+//        chartView.setScaleEnabled(false)
+//        chartView.setPinchZoom(false)
+//        chartView.setTouchEnabled(false)
+//
+//        chartView.axisLeft.setDrawGridLines(false)
+//        chartView.axisRight.setDrawGridLines(false)
+//        chartView.xAxis.setDrawGridLines(false)
+//
+////        setAxis(chartView)
+//
+//        chartView.isHighlightPerTapEnabled = false
+//        chartView.invalidate()
     }
 
     private fun convertStringToDate(date: String): Float {

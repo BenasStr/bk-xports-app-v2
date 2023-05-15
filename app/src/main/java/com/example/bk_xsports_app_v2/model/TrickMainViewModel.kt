@@ -29,13 +29,8 @@ class TrickMainViewModel: ViewModel() {
     fun changeTrickStatus(token: String, sportId: Int, categoryId: Int, trickId: Int) {
         viewModelScope.launch {
             try {
-                println("This is going")
                 _trick.value = Api.retrofitService.updateProgress(token, sportId, categoryId, trickId)
             } catch (e: Exception) {
-                println("f my life")
-                println(sportId)
-                println(categoryId)
-                println(trickId)
                 println(e)
                 _status.value = false
             }

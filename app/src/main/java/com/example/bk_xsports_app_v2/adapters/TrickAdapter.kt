@@ -68,13 +68,8 @@ class TrickAdapter(private val navController: NavController, private val trickDa
             done = true
         }
 
-        when (done) {
-            false -> {
-                cardView.setCardBackgroundColor(ContextCompat.getColor(cardView.context, R.color.yellow_200))
-            }
-            true -> {
-                cardView.setCardBackgroundColor(ContextCompat.getColor(cardView.context, R.color.green_500))
-            }
+        if(done) {
+            cardView.setCardBackgroundColor(ContextCompat.getColor(cardView.context, R.color.green_500))
         }
     }
 

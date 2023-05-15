@@ -71,19 +71,18 @@ class TrickFragment : Fragment() {
             trickMainViewModel.changeTrickStatus(tokenViewModel.token.value.toString(), args.sportId, args.categoryId, args.trickId)
         }
 
-//        val nextTrickButton = view.findViewById<Button>(R.id.next_trick_button)
-//        var nextTrickId: Int = -1;
-//
-//        nextTrickButton.setOnClickListener {
-//            TrickFragmentDirections.actionTrickFragment2Self(nextTrickId, args.sportId, args.categoryId, false)
-//        }
+        val nextTrickButton = view.findViewById<Button>(R.id.next_trick_button)
+        var nextTrickId: Int = -1;
+
+        nextTrickButton.setOnClickListener {
+            TrickFragmentDirections.actionTrickFragment2Self(nextTrickId, args.sportId, args.categoryId, false)
+        }
 
         trickMainViewModel.trick.observe(viewLifecycleOwner) { trick ->
             trickName.text = trick.data.name
             trickDescription.text = trick.data.description
 
             setStatusButtonText(statusButton, trick)
-//            setNextTrickId(trick)
             setItemBackgroundColor(trick.data, trickCard)
 
             trickPrerequisitesRecyclerView.adapter = PrerequisitesAdapter(trick.data.trickParents)
@@ -99,10 +98,9 @@ class TrickFragment : Fragment() {
     private fun playVideo(url: String?, view: VideoView) {
         if (url != null) {
             try {
-                view.setVideoPath("android.resource://" + requireContext().packageName + "/" + R.raw.test)
+                view.setVideoPath(url)
                 view.setMediaController(MediaController(requireContext()))
                 view.requestFocus()
-                view.start()
             } catch (e: Exception) {
                 println(e)
                 view.visibility = View.GONE
@@ -139,12 +137,4 @@ class TrickFragment : Fragment() {
             statusButton.text = "Learning"
         }
     }
-
-//    private fun setNextTrickId(trick: TrickMainData): Int {
-//        return trick.data.trickChildren.stream()
-//            .filter{ child ->
-//                child.status != "Done"
-//            }.findFirst()
-//            .get().trickId
-//    }
 }

@@ -21,7 +21,6 @@ class PrerequisitesAdapter(private val trickData: List<Trick>):
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val trick = trickData[position]
         holder.trickPrerequisite.text = trick.name
-        println("STO THE FUCK???")
         colorTextBasedOnStatus(trick, holder.trickPrerequisite)
     }
 

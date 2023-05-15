@@ -39,7 +39,7 @@ class SportAdapter(private val sportData: MutableList<Sport>, private val token:
         circularProgressDrawable.centerRadius = 100f
         circularProgressDrawable.start()
 
-        holder.imageView.load(sport.photo) {
+        holder.imageView.load(sport.photo?.replace("localhost", "192.168.1.219")) {
             addHeader("Authorization", token)
             placeholder(circularProgressDrawable)
             error(R.drawable.ic_baseline_hide_image_26)

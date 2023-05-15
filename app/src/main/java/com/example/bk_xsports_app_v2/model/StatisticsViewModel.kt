@@ -16,7 +16,6 @@ class StatisticsViewModel: ViewModel() {
     val status: LiveData<Boolean> = _status
 
     fun getStatisticsData(token: String) {
-        println("THis api is called")
         viewModelScope.launch {
             try {
                 _statistics.value = Api.retrofitService.getStatistics(token)
